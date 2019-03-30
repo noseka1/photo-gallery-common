@@ -2,7 +2,7 @@ package com.redhat.photogallery.common;
 
 public class DataStoreItem {
 
-	private String id = "";
+	protected String id = "";
 
 	public String getId() {
 		return id;

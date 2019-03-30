@@ -17,6 +17,14 @@ public class DataStore<T extends DataStoreItem> {
 		return item;
 	}
 
+	public void setItem(T item) {
+		items.put(item.getId(), item);
+	}
+
+	public T getItem(String id) {
+		return items.get(id);
+	}
+
 	public List<T> getAllItems() {
 		return new ArrayList<>(items.values());
 	}
