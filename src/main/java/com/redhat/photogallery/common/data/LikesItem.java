@@ -14,7 +14,7 @@ public class LikesItem extends DataStoreItem {
 
 	@Override
 	public String toString() {
-		return "LikesItem [likes=" + likes + ", id=" + id + "]";
+		return "LikesItem [id=" + id + ", likes=" + likes + "]";
 	}
 
 }

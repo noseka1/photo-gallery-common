@@ -23,6 +23,7 @@ public class PhotoItem extends DataStoreItem {
 
 	@Override
 	public String toString() {
-		return "PhotoItem [name=" + name + ", category=" + category + ", id=" + id + "]";
+		return "PhotoItem [id=" + id + ", name=" + name + ", category=" + category + "]";
 	}
+
 }

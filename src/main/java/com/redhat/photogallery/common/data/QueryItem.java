@@ -32,7 +32,7 @@ public class QueryItem extends DataStoreItem {
 
 	@Override
 	public String toString() {
-		return "QueryItem [name=" + name + ", category=" + category + ", likes=" + likes + ", id=" + id + "]";
+		return "QueryItem [id=" + id + ", name=" + name + ", category=" + category + ", likes=" + likes + "]";
 	}
 
 }
