@@ -22,6 +22,6 @@ public class VertxInit {
 	}
 
 	private static void vertxError(Throwable t) {
-		LOG.error("Failed to initialize Vert.x");
+		LOG.error("Failed to initialize Vert.x", t);
 	}
 }
