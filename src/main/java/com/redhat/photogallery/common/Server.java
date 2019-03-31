@@ -22,10 +22,14 @@ public class Server extends AbstractVerticle {
     public void start() {
         Router router = Router.router(vertx);
         EventBus eventBus = vertx.eventBus();
+
+        // let components register their HTTP routes and connect to the event bus
         for (ServerComponent component : components) {
             component.registerRoutes(router);
             component.injectEventBus(eventBus);
         }
+
+        // start the HTTP server
         vertx.createHttpServer().requestHandler(router).rxListen(listenPort).subscribe(this::listenSuccess,
                 this::listenError);
     }

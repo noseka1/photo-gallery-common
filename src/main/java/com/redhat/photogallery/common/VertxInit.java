@@ -17,6 +17,10 @@ public class VertxInit {
 
     private static final Logger LOG = LoggerFactory.getLogger(VertxInit.class);
 
+    public static Vertx createVertx() {
+        return Vertx.vertx();
+    }
+
     public static void createClusteredVertx(Consumer<Vertx> onSuccess) {
         Vertx.rxClusteredVertx(new VertxOptions()).subscribe(onSuccess, VertxInit::vertxError);
     }
