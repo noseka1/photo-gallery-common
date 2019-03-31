@@ -10,14 +10,7 @@ public class DataStore<T extends DataStoreItem> {
 
 	private Map<String, T> items = new HashMap<>();
 
-	public T insertItem(T item) {
-		String id = generateId();
-		item.setId(id);
-		items.put(id, item);
-		return item;
-	}
-
-	public void setItem(T item) {
+	public void putItem(T item) {
 		items.put(item.getId(), item);
 	}
 
@@ -29,7 +22,7 @@ public class DataStore<T extends DataStoreItem> {
 		return new ArrayList<>(items.values());
 	}
 
-	private String generateId() {
+	public String generateId() {
 		return UUID.randomUUID().toString().replaceAll("-", "");
 	}
 }
