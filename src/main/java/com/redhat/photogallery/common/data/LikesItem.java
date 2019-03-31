@@ -1,7 +1,5 @@
 package com.redhat.photogallery.common.data;
 
-import com.redhat.photogallery.common.DataStoreItem;
-
 public class LikesItem extends DataStoreItem {
 
 	private int likes;
