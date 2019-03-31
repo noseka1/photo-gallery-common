@@ -1,4 +1,4 @@
-package com.redhat.photogallery.common;
+package com.redhat.photogallery.common.data;
 
 public class DataStoreItem {
 
