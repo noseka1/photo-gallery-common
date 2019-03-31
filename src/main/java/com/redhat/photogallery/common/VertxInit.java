@@ -9,19 +9,19 @@ import io.vertx.reactivex.core.Vertx;
 
 public class VertxInit {
 
-	private VertxInit() {};
+    private VertxInit() {};
 
-	static {
-		System.setProperty("vertx.logger-delegate-factory-class-name", SLF4JLogDelegateFactory.class.getName());
-	}
+    static {
+        System.setProperty("vertx.logger-delegate-factory-class-name", SLF4JLogDelegateFactory.class.getName());
+    }
 
-	private static final Logger LOG = LoggerFactory.getLogger(VertxInit.class);
+    private static final Logger LOG = LoggerFactory.getLogger(VertxInit.class);
 
-	public static void createClusteredVertx(Consumer<Vertx> onSuccess) {
-		Vertx.rxClusteredVertx(new VertxOptions()).subscribe(onSuccess, VertxInit::vertxError);
-	}
+    public static void createClusteredVertx(Consumer<Vertx> onSuccess) {
+        Vertx.rxClusteredVertx(new VertxOptions()).subscribe(onSuccess, VertxInit::vertxError);
+    }
 
-	private static void vertxError(Throwable t) {
-		LOG.error("Failed to initialize Vert.x", t);
-	}
+    private static void vertxError(Throwable t) {
+        LOG.error("Failed to initialize Vert.x", t);
+    }
 }

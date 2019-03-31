@@ -9,34 +9,34 @@ import io.vertx.reactivex.ext.web.Router;
 
 public class Server extends AbstractVerticle {
 
-	private static final Logger LOG = LoggerFactory.getLogger(Server.class);
-	private final int listenPort;
-	private final ServerComponent[] components;
+    private static final Logger LOG = LoggerFactory.getLogger(Server.class);
+    private final int listenPort;
+    private final ServerComponent[] components;
 
-	public Server(int listenPort, ServerComponent... components) {
-		this.listenPort = listenPort;
-		this.components = components;
-	}
+    public Server(int listenPort, ServerComponent... components) {
+        this.listenPort = listenPort;
+        this.components = components;
+    }
 
-	@Override
-	public void start() {
-		Router router = Router.router(vertx);
-		EventBus eventBus = vertx.eventBus();
-		for (ServerComponent component : components) {
-			component.registerRoutes(router);
-			component.injectEventBus(eventBus);
-		}
-		vertx.createHttpServer().requestHandler(router).rxListen(listenPort).subscribe(this::listenSuccess,
-				this::listenError);
-	}
+    @Override
+    public void start() {
+        Router router = Router.router(vertx);
+        EventBus eventBus = vertx.eventBus();
+        for (ServerComponent component : components) {
+            component.registerRoutes(router);
+            component.injectEventBus(eventBus);
+        }
+        vertx.createHttpServer().requestHandler(router).rxListen(listenPort).subscribe(this::listenSuccess,
+                this::listenError);
+    }
 
-	private void listenSuccess(HttpServer httpServer) {
-		LOG.info("Server is listening on port {}", httpServer.actualPort());
-	}
+    private void listenSuccess(HttpServer httpServer) {
+        LOG.info("Server is listening on port {}", httpServer.actualPort());
+    }
 
-	private void listenError(Throwable t) {
-		LOG.error("Server failed to listen on port {}", listenPort, t);
-		vertx.close();
-	}
+    private void listenError(Throwable t) {
+        LOG.error("Server failed to listen on port {}", listenPort, t);
+        vertx.close();
+    }
 
 }

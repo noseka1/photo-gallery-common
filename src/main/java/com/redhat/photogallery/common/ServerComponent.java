@@ -5,7 +5,7 @@ import io.vertx.reactivex.ext.web.Router;
 
 public interface ServerComponent {
 
-	void registerRoutes(Router router);
+    void registerRoutes(Router router);
 
-	void injectEventBus(EventBus eventBus);
+    void injectEventBus(EventBus eventBus);
 }
