@@ -1,10 +1,18 @@
 package com.redhat.photogallery.common.data;
 
-public class QueryItem extends DataStoreItem {
+public class PhotoMessage {
 
+    private Long id;
     private String name;
     private String category;
-    private int likes;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -22,17 +30,9 @@ public class QueryItem extends DataStoreItem {
         this.category = category;
     }
 
-    public int getLikes() {
-        return likes;
-    }
-
-    public void setLikes(int likes) {
-        this.likes = likes;
-    }
-
     @Override
     public String toString() {
-        return "QueryItem [id=" + id + ", name=" + name + ", category=" + category + ", likes=" + likes + "]";
+        return "PhotoItem [id=" + id + ", name=" + name + ", category=" + category + "]";
     }
 
 }

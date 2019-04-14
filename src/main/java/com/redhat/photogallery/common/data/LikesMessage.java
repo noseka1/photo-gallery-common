@@ -1,8 +1,17 @@
 package com.redhat.photogallery.common.data;
 
-public class LikesItem extends DataStoreItem {
+public class LikesMessage {
 
+    private Long id;
     private int likes;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public int getLikes() {
         return likes;
