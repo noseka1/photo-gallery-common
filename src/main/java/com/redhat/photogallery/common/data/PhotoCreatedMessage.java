@@ -1,6 +1,6 @@
 package com.redhat.photogallery.common.data;
 
-public class PhotoMessage {
+public class PhotoCreatedMessage {
 
     private Long id;
     private String name;

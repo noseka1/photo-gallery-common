@@ -1,6 +1,6 @@
 package com.redhat.photogallery.common.data;
 
-public class LikesMessage {
+public class LikesAddedMessage {
 
     private Long id;
     private int likes;
